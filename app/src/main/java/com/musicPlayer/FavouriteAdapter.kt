@@ -51,11 +51,11 @@ class FavouriteAdapter(private val context: Context, private var musicList: Arra
                     .create()
                 dialog.show()
                 dialog.window?.setBackgroundDrawable(ColorDrawable(0x99000000.toInt()))
-                bindingMF.AddToPNBtn.text = "Remove"
+                bindingMF.AddToPNBtn.text = "Убрать"
                 bindingMF.AddToPNBtn.setOnClickListener {
                     if(position == PlayerActivity.songPosition)
                         Snackbar.make((context as Activity).findViewById(R.id.linearLayoutPN),
-                            "Can't Remove Currently Playing Song.", Snackbar.LENGTH_SHORT).show()
+                            "Нельзя убрать во время воспроизведения.", Snackbar.LENGTH_SHORT).show()
                     else{
                         if(PlayerActivity.songPosition < position && PlayerActivity.songPosition != 0) --PlayerActivity.songPosition
                         PlayNext.playNextList.removeAt(position)
